@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Checkout do código') {
             steps {
-                git(url: 'https://github.com/Leonardo-009/conversao-temperatura.git', branch: 'main')
+                git url: 'https://github.com/Leonardo-009/conversao-temperatura.git', branch: 'main'
             }
         }
-    
-        stage('Construção da imagem Docker') {
-            steps {
-                script {
-                    dockerapp = docker.build("leonardo/conversao-temperatura:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
-                }
+    }
+
+    stage ('costrução da imagem Docker'){
+        steps{
+            script {
+                dockerapp = docker.build("leonardo/conversao-temperatura:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
             }
         }
     }
