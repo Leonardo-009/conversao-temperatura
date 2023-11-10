@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('primeiro stage') {
+        stage('Checkout do código') {
             steps {
-                echo 'primeira pipeline'
-                // Adicione os comandos relacionados ao seu estágio aqui
+                git url:'https://github.com/Leonardo-009/conversao-temperatura.git', brach: 'main'
+                sh 'ls'
             }
         }
     }
